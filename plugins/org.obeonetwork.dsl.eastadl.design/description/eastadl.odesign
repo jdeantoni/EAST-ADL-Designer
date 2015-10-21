@@ -239,7 +239,7 @@
           </ownedTools>
         </toolSections>
       </defaultLayer>
-      <additionalLayers name="Ports">
+      <additionalLayers name="Ports" activeByDefault="true" optional="false">
         <containerMappings xsi:type="description_1:ContainerMappingImport" name="Import analysis function" detailDescriptions="//@ownedViewpoints[name='EAST-ADL']/@ownedRepresentations[name='Structure%20of%20Functional%20Analysis%20Architecture']/@defaultLayer/@toolSections.0/@ownedTools[name='CreateInternalStructureOfAnalysisDescirption']" reusedNodeMappings="//@ownedViewpoints[name='EAST-ADL']/@ownedRepresentations[name='Structure%20of%20Functional%20Analysis%20Architecture']/@defaultLayer/@containerMappings[name='Analysis%20Function']/@subNodeMappings[name='Parameter']" importedMapping="//@ownedViewpoints[name='EAST-ADL']/@ownedRepresentations[name='Structure%20of%20Functional%20Analysis%20Architecture']/@defaultLayer/@containerMappings[name='Analysis%20Function']">
           <borderedNodeMappings name="Signal Function Port" labelDirectEdit="//@ownedViewpoints[name='EAST-ADL']/@ownedRepresentations[name='Reusing']/@defaultLayer/@toolSections.0/@ownedTools[name='Name%20direct%20edit']" domainClass="common.SignalFunctionPort">
             <conditionnalStyles predicateExpression="[self.provided = true/]">
@@ -276,14 +276,14 @@
         </containerMappings>
         <containerMappings xsi:type="description_1:ContainerMappingImport" name="Import functional device" preconditionExpression="&lt;%$container == eContainer()%>" semanticCandidatesExpression="&lt;%current.functionalDevices%>" domainClass="FunctionalDevice" reusedNodeMappings="//@ownedViewpoints[name='EAST-ADL']/@ownedRepresentations[name='Structure%20of%20Functional%20Analysis%20Architecture']/@defaultLayer/@containerMappings[name='Functional%20Device']/@subNodeMappings[name='Parameter']" importedMapping="//@ownedViewpoints[name='EAST-ADL']/@ownedRepresentations[name='Structure%20of%20Functional%20Analysis%20Architecture']/@defaultLayer/@containerMappings[name='Functional%20Device']">
           <borderedNodeMappings name="Signal Function Port" preconditionExpression="&lt;%$container == eContainer()%>" semanticCandidatesExpression="&lt;%current.eAllContents%>" domainClass="SignalFunctionPort">
-            <conditionnalStyles predicateExpression="&lt;%provided == &quot;true&quot;%>">
+            <conditionnalStyles predicateExpression="[self.provided = true/]">
               <style xsi:type="style:BundledImageDescription" sizeComputationExpression="2">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
               </style>
             </conditionnalStyles>
-            <conditionnalStyles predicateExpression="&lt;%provided == &quot;false&quot;%>">
+            <conditionnalStyles predicateExpression="[self.provided = false/]">
               <style xsi:type="style:BundledImageDescription" sizeComputationExpression="2">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -292,14 +292,14 @@
             </conditionnalStyles>
           </borderedNodeMappings>
           <borderedNodeMappings name="Operation Function Port" preconditionExpression="&lt;%$container == eContainer()%>" semanticCandidatesExpression="&lt;%current.eAllContents%>" domainClass="OperationFunctionPort">
-            <conditionnalStyles predicateExpression="&lt;%provided == &quot;true&quot;%>">
+            <conditionnalStyles predicateExpression="[self.provided = true/]">
               <style xsi:type="style:BundledImageDescription" sizeComputationExpression="2">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
               </style>
             </conditionnalStyles>
-            <conditionnalStyles predicateExpression="&lt;%provided == &quot;false&quot;%>">
+            <conditionnalStyles predicateExpression="[self.provided = false/]">
               <style xsi:type="style:BundledImageDescription" sizeComputationExpression="2">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -375,14 +375,14 @@
           </ownedTools>
         </toolSections>
       </additionalLayers>
-      <additionalLayers name="Signals">
-        <edgeMappings name="Signal connector" semanticCandidatesExpression="&lt;%current.eAllContents%>" sourceMapping="//@ownedViewpoints[name='EAST-ADL']/@ownedRepresentations[name='Structure%20of%20Functional%20Analysis%20Architecture']/@additionalLayers[name='Ports']/@containerMappings[name='Import%20analysis%20function']/@borderedNodeMappings[name='Signal%20Function%20Port'] //@ownedViewpoints[name='EAST-ADL']/@ownedRepresentations[name='Structure%20of%20Functional%20Analysis%20Architecture']/@additionalLayers[name='Ports']/@containerMappings[name='Import%20functional%20device']/@borderedNodeMappings[name='Signal%20Function%20Port']" targetMapping="//@ownedViewpoints[name='EAST-ADL']/@ownedRepresentations[name='Structure%20of%20Functional%20Analysis%20Architecture']/@additionalLayers[name='Ports']/@containerMappings[name='Import%20analysis%20function']/@borderedNodeMappings[name='Signal%20Function%20Port'] //@ownedViewpoints[name='EAST-ADL']/@ownedRepresentations[name='Structure%20of%20Functional%20Analysis%20Architecture']/@additionalLayers[name='Ports']/@containerMappings[name='Import%20functional%20device']/@borderedNodeMappings[name='Signal%20Function%20Port']" targetFinderExpression="&lt;%receiver.typedPort%>" sourceFinderExpression="&lt;%emitter.typedPort%>" domainClass="ConnectorSignal" useDomainElement="true">
-          <style>
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+      <additionalLayers name="Signals" activeByDefault="true">
+        <edgeMappings name="Signal connector" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='EAST-ADL']/@ownedRepresentations[name='Structure%20of%20Functional%20Analysis%20Architecture']/@additionalLayers[name='Ports']/@containerMappings[name='Import%20analysis%20function']/@borderedNodeMappings[name='Signal%20Function%20Port'] //@ownedViewpoints[name='EAST-ADL']/@ownedRepresentations[name='Structure%20of%20Functional%20Analysis%20Architecture']/@additionalLayers[name='Ports']/@containerMappings[name='Import%20functional%20device']/@borderedNodeMappings[name='Signal%20Function%20Port']" targetMapping="//@ownedViewpoints[name='EAST-ADL']/@ownedRepresentations[name='Structure%20of%20Functional%20Analysis%20Architecture']/@additionalLayers[name='Ports']/@containerMappings[name='Import%20analysis%20function']/@borderedNodeMappings[name='Signal%20Function%20Port'] //@ownedViewpoints[name='EAST-ADL']/@ownedRepresentations[name='Structure%20of%20Functional%20Analysis%20Architecture']/@additionalLayers[name='Ports']/@containerMappings[name='Import%20functional%20device']/@borderedNodeMappings[name='Signal%20Function%20Port']" targetFinderExpression="[self.receiver.typedPort/]" sourceFinderExpression="[self.emitter.typedPort/]" domainClass="common.ConnectorSignal" useDomainElement="true">
+          <style sizeComputationExpression="1">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
           </style>
         </edgeMappings>
-        <edgeMappings name="Operation call" semanticCandidatesExpression="&lt;%current.eAllContents%>" sourceMapping="//@ownedViewpoints[name='EAST-ADL']/@ownedRepresentations[name='Structure%20of%20Functional%20Analysis%20Architecture']/@additionalLayers[name='Ports']/@containerMappings[name='Import%20analysis%20function']/@borderedNodeMappings[name='Operation%20Function%20Port'] //@ownedViewpoints[name='EAST-ADL']/@ownedRepresentations[name='Structure%20of%20Functional%20Analysis%20Architecture']/@additionalLayers[name='Ports']/@containerMappings[name='Import%20functional%20device']/@borderedNodeMappings[name='Operation%20Function%20Port']" targetMapping="//@ownedViewpoints[name='EAST-ADL']/@ownedRepresentations[name='Structure%20of%20Functional%20Analysis%20Architecture']/@additionalLayers[name='Ports']/@containerMappings[name='Import%20analysis%20function']/@borderedNodeMappings[name='Operation%20Function%20Port'] //@ownedViewpoints[name='EAST-ADL']/@ownedRepresentations[name='Structure%20of%20Functional%20Analysis%20Architecture']/@additionalLayers[name='Ports']/@containerMappings[name='Import%20functional%20device']/@borderedNodeMappings[name='Operation%20Function%20Port']" targetFinderExpression="&lt;%receiver.typedPort%>" sourceFinderExpression="&lt;%emitter.typedPort%>" domainClass="OperationCall" useDomainElement="true">
-          <style>
+        <edgeMappings name="Operation call" sourceMapping="//@ownedViewpoints[name='EAST-ADL']/@ownedRepresentations[name='Structure%20of%20Functional%20Analysis%20Architecture']/@additionalLayers[name='Ports']/@containerMappings[name='Import%20analysis%20function']/@borderedNodeMappings[name='Operation%20Function%20Port'] //@ownedViewpoints[name='EAST-ADL']/@ownedRepresentations[name='Structure%20of%20Functional%20Analysis%20Architecture']/@additionalLayers[name='Ports']/@containerMappings[name='Import%20functional%20device']/@borderedNodeMappings[name='Operation%20Function%20Port']" targetMapping="//@ownedViewpoints[name='EAST-ADL']/@ownedRepresentations[name='Structure%20of%20Functional%20Analysis%20Architecture']/@additionalLayers[name='Ports']/@containerMappings[name='Import%20analysis%20function']/@borderedNodeMappings[name='Operation%20Function%20Port'] //@ownedViewpoints[name='EAST-ADL']/@ownedRepresentations[name='Structure%20of%20Functional%20Analysis%20Architecture']/@additionalLayers[name='Ports']/@containerMappings[name='Import%20functional%20device']/@borderedNodeMappings[name='Operation%20Function%20Port']" targetFinderExpression="[self.receiver.typedPort/]" sourceFinderExpression="[self.emitter.typedPort/]" domainClass="common.OperationCall" useDomainElement="true">
+          <style sizeComputationExpression="">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
           </style>
         </edgeMappings>
