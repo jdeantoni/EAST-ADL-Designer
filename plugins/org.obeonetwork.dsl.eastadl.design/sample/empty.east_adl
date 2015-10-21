@@ -1,3 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<east_adl:EASTADLModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:east_adl="http://www.topcased.org/0.11.0/east_adl">
+<east_adl:EASTADLModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:east_adl="http://www.topcased.org/0.11.0/east_adl" xmlns:functional_analysis_architecture="http://www.topcased.org/0.11.0/east_adl/structure/functional_analysis_architecture">
+  <artifacts xsi:type="functional_analysis_architecture:FunctionalAnalysisArchitecture" name="test1"/>
 </east_adl:EASTADLModel>
